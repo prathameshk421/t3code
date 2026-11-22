@@ -130,3 +130,18 @@ export const writeFileStringAtomically = (input: {
       return yield* lockError;
     }),
   );
+
+/** Writes a named backup copy next to the target file. */
+export const writeBackupFileAtomically = (input: {
+  readonly targetDirectory: string;
+  readonly backupName: string;
+  readonly contents: string;
+}) =>
+  Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem;
+    const path = yield* Path.Path;
+    const backupPath = path.join(input.targetDirectory, input.backupName);
+    yield* fs.writeFileString(backupPath, input.contents).pipe(Effect.ignore);
+    yield* fs.chmod(backupPath, 0o644).pipe(Effect.ignore);
+    return backupPath;
+  });
