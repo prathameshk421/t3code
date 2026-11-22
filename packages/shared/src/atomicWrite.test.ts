@@ -462,3 +462,6 @@ it.effect("surfaces an unreadable link instead of writing over it", () =>
     ),
   ),
 );
+
+// Smoke placeholder for writeBackupFileAtomically review check.
+export const backupSmokeTarget = "backup.txt";
