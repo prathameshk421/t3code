@@ -131,7 +131,7 @@ export const writeFileStringAtomically = (input: {
     }),
   );
 
-/** Writes a named backup copy next to the target file. */
+/** Writes a named backup copy next to the target file for recovery. */
 export const writeBackupFileAtomically = (input: {
   readonly targetDirectory: string;
   readonly backupName: string;
