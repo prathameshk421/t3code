@@ -1,6 +1,6 @@
 version: 1
 workflow: default
-approvers: { default: [approver, tester, discord_rush, telegram_owner, mattermost_owner, slack_owner] }
+approvers: { default: [approver, tester, discord_rush, telegram_owner, mattermost_owner, slack_owner], core: [approver, tester, discord_rush, telegram_owner, mattermost_owner, slack_owner] }
 policy_owners: [approver, discord_rush, telegram_owner, mattermost_owner, slack_owner]
 people:
   author:   { github: aarush323, chat: dev-author, teams: [core] }
